@@ -1,5 +1,6 @@
 package com.apilogger.restapilogger.service.impl;
 
+import com.apilogger.restapilogger.exception.CloudVendorNotFoundException;
 import com.apilogger.restapilogger.model.CloudVendor;
 import com.apilogger.restapilogger.repository.CloudVendorRepository;
 import com.apilogger.restapilogger.service.CloudVendorService;
@@ -40,6 +41,8 @@ public class CloudVendorServiceImpl implements CloudVendorService {
     @Override
     public CloudVendor getCloudVendor(String cloudVendorId) {
         // More Business logic
+        if (cloudVendorRepository.findById(cloudVendorId).isEmpty())
+                throw new CloudVendorNotFoundException("Requested Cloud Vendor does not exist");
         return cloudVendorRepository.findById(cloudVendorId).get();
     }
 
