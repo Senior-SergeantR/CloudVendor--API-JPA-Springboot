@@ -1,7 +1,10 @@
 package com.apilogger.restapilogger.controller;
 
 import com.apilogger.restapilogger.model.CloudVendor;
+import com.apilogger.restapilogger.response.ResponseHandler;
 import com.apilogger.restapilogger.service.CloudVendorService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,9 +20,11 @@ public class CloudVendorAPIController {
 
     //Reading Specific CloudVendor
     @GetMapping("{vendorId}")
-    public CloudVendor getCloudVendorDetails(@PathVariable("vendorId") String vendorId) {
+    public ResponseEntity<Object> getCloudVendorDetails(@PathVariable("vendorId") String vendorId) {
 
-        return cloudVendorService.getCloudVendor(vendorId);
+        return ResponseHandler.responseBuilder("Requested Vendor Details are given here",
+                HttpStatus.OK, cloudVendorService.getCloudVendor(vendorId));
+
 
     }
     //Reading all cloudVendors available in the database
