@@ -35,19 +35,27 @@ public class CloudVendorAPIController {
 
     }
 
+//    Read Specific Cloud Vendor Details from DB by VendorName
+//    @GetMapping("{vendorName}")
+//    public ResponseEntity<Object> getCloudVendorDetailsByName(@PathVariable("vendorName") String vendorName){
+//        return ResponseHandler.responseBuilder("Requested Vendor Details are given here",
+//                HttpStatus.OK, cloudVendorService.getByVendorName(vendorName));
+//    }
+
+
     @PostMapping
     public String createCloudVendorDetails(@RequestBody CloudVendor cloudVendor){
        cloudVendorService.createCloudVendor(cloudVendor);
-        return "cloud vendor created successfully";
+        return "Cloud Vendor Created Successfully";
     }
     @PutMapping
     public String updateCloudVendorDetails(@RequestBody CloudVendor cloudVendor){
         cloudVendorService.updateCloudVendor(cloudVendor);
-        return "cloud vendor updated successfully";
+        return "Cloud Vendor Updated successfully";
     }
     @DeleteMapping("{vendorId}")
     public String deleteCloudVendorDetails(@PathVariable("vendorId") String vendorId){
         cloudVendorService.deleteCloudVendor(vendorId);
-        return "cloud vendorId "+vendorId+" deleted successfully";
+        return "Cloud VendorId "+vendorId+" deleted successfully";
     }
 }
