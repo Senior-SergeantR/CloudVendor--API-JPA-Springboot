@@ -52,4 +52,9 @@ public class CloudVendorServiceImpl implements CloudVendorService {
         return cloudVendorRepository.findAll();
 
     }
+    @Override
+    public List<CloudVendor> getByVendorName(String vendorName){
+
+        return cloudVendorRepository.findByVendorName(vendorName);
+    }
 }

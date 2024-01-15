@@ -1,6 +1,7 @@
 package com.apilogger.restapilogger.service;
 
 import com.apilogger.restapilogger.model.CloudVendor;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.util.List;
 
@@ -12,5 +13,5 @@ public interface CloudVendorService {
 
     public List<CloudVendor> getAllCloudVendors();
 
-
+    public List<CloudVendor>getByVendorName(String amazon);
 }

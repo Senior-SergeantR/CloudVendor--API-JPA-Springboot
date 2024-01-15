@@ -7,7 +7,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class RestApiLoggerApplication {
 
 	public static void main(String[] args) {
+
 		SpringApplication.run(RestApiLoggerApplication.class, args);
+
 	}
 
 }
